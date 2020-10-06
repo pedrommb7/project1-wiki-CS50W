@@ -1,0 +1,24 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+Wiki
+{% endblock %}
+
+{% block body %}
+<h1>Edit entry</h1>
+<form action="{% url 'submitEditEntry' title %}" method="POST">
+    {{ editPageForm }}
+    {% csrf_token %}
+    <br>
+    <button class="btn btn-secondary" type="submit">Submit</button>
+
+    <!-- After hitting the submit button submitEditEntry function is called. This function:
+        
+        # Extracts 'data' and 'title' from form
+        # If the title is edited, deletes old file
+        # Saves new entry
+        # Get the new entry and returns the edited entry with a success message
+    -->
+</form>
+
+{% endblock %}

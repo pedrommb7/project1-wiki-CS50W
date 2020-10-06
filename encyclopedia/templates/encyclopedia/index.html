@@ -1,0 +1,16 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+Encyclopedia
+{% endblock %}
+
+{% block body %}
+<h1>All Pages</h1>
+
+<!-- loop that runs through entries folder and shows all files as clickable items. When cllicked we're taken to the entry.html page-->
+<ul>
+    {% for entry in entries %}
+    <li><a href=/wiki/{{entry}}>{{ entry }}</a></li>
+    {% endfor %}
+</ul>
+{% endblock %}
